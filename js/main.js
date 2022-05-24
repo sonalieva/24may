@@ -1,4 +1,10 @@
 let visitCount = localStorage.getItem('visitCount');
+let besketbtn = document.getElementById('shopping')
+
+let sidebar = document.getElementById('sidebar');
+
+let closebtn=document.querySelector('.fa-xmark')
+
 
 function BasketItem(id,count){
     this.Id = id;
@@ -42,6 +48,33 @@ btns.forEach(el=>{
         document.querySelector('.basket .item-count').innerText = basketItems.length;
 
         localStorage.setItem('basket',JSON.stringify(basketItems))
+         let div = document.createElement('div')
+       let divid =document.createAttribute('data-id')
+       divid.value = dataId
+      
+        let span = document.createElement('span')
+        let img = document.createElement('img');
+        let icon = document.createElement('i');
+        icon.classList.add('fa-solid')
+        icon.classList.add('fa-ban')
+        icon.classList.add('delete')
+        img.classList.add('sideimg')
+        span.classList.add('sidespan')
+        let imgatr = document.createAttribute('src')
+        img.setAttributeNode(imgatr)
+        let dataIds = el.parentNode.parentNode
+                let imgssss=dataIds.children[0]
+                console.log(imgssss.src)
+                imgatr.value= imgssss.src
+                span.innerText='Count:'+ ' '+item.Count
+                div.appendChild(img)
+                div.appendChild(span)
+                div.appendChild(icon)
+                sidebar.appendChild(div)
+        
+      
+        icon.addEventListener('click' ,function(){
+            div.remove()
     })
 })
 
