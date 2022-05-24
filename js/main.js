@@ -64,9 +64,7 @@ btns.forEach(el=>{
         img.setAttributeNode(imgatr)
         let dataIds = el.parentNode.parentNode
                 let imgssss=dataIds.children[0]
-                console.log(imgssss.src)
-                imgatr.value= imgssss.src
-                span.innerText='Count:'+ ' '+item.Count
+              
                 div.appendChild(img)
                 div.appendChild(span)
                 div.appendChild(icon)
